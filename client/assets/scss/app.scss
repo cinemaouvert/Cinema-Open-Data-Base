@@ -1,0 +1,117 @@
+@import "settings";
+@import "foundation";
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea, .button-group.segmented, .inline-label > a, .inline-label > button, .inline-label > input[type="button"], .inline-label > input[type="submit"], .button, select{
+	border-radius:$global-radius;
+}
+
+#main{
+	padding-top:0.35rem;
+}
+
+#sidebar{
+	padding-top:1rem;
+	background: #fff !important;
+	border-right: 1px solid $gray;
+	transition-timing-function: cubic-bezier(0.76, -0.245, 0.24, 1.245) !important;
+}
+
+.sidebar-search {
+  padding: 1rem;
+  padding-top:0rem;
+  padding-bottom:0rem;
+  border-bottom: 1px solid $gray;
+  overflow: visible;
+}
+
+// This is the block list container
+.custom-block-list {
+	li{
+	border-bottom: 0;
+	}
+	li:first-child{
+	border-top: 0;
+	}
+}
+
+.custom-title-bar {
+	// Extend the base selector to get core structural styles
+	@extend %title-bar;
+	// Add visual styles with this mixin
+	@include title-bar-style(
+	$background: #fff,
+	$border: 1px solid $gray
+	);
+}
+
+.card-section{
+	p{
+		margin-bottom:0.5rem;
+		min-height:7rem;
+	}
+	
+}
+
+.card-link{
+		text-align:right;
+		margin-top:-1rem;
+		margin-bottom:-1rem;
+		a{
+			border-top-left-radius:0;
+			border-top-right-radius:0;
+			padding:0.5rem;
+		}
+		
+}
+
+.card-img{
+	img{
+		display:none;
+	}
+	.poster{
+		display:block;
+	}
+}
+
+.main-option{
+	min-height:4rem;
+	margin-top:0.6rem;
+}
+
+#panel-config{
+	padding:1rem;
+	padding-top:0;
+}
+
+#panel-config-depot{
+	padding:1rem;
+	padding-top:0;
+}
+
+.list{
+	margin-bottom:1rem;
+	min-height:4rem;
+}
+
+.list-img{
+	float:left;
+	width:8rem;
+	margin-right: 1rem;
+}
+
+.gallery-view{
+	border-top: 1px solid $gray;
+	padding-top:1rem;
+	display:inline-flex;
+	padding:1rem;
+	p{
+		margin-bottom:0;
+	}
+	img{
+		width:7rem;
+		margin-right:1rem;
+	}
+	a{
+		margin-bottom:0;
+	}
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" ng-app="application">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinema Open Data Base Client</title>
+    <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+    <script src="/assets/js/foundation.js"></script>
+    <script src="/assets/js/templates.js"></script>
+    <script src="/assets/js/routes.js"></script>
+    <script src="/assets/js/app.js"></script>
+  </head>
+  <body ng-controller="AppController">
+    <div class="vertical grid-frame">
+      <div class="shrink grid-content" style="padding: 0;">
+        <ul class="primary menu-bar">
+          <li><a><strong>Cinema Open Data Base Client</strong></a></li>
+        </ul>
+        <div class="title-bar custom-title-bar">
+          <span class="left"><a ui-sref="home"><img zf-iconic="" icon="home" size="small" class="iconic-color-primary"></a></span>
+          <span class="title center">{{title}}</span>
+          <span class="right"><a href="#" zf-open="panel-config"><img zf-iconic="" icon="cog" size="small" class="iconic-color-primary"></a></span>
+        </div>
+      </div>
+      <div ui-view class="grid-block">
+      </div>
+      <div zf-panel="" id="panel-config" position="right">
+        <a zf-close="" class="close-button">×</a>
+        <p>
+          <h3>Configuration</h3>
+          
+          <h5>Connexion au depot</h5>
+          <h5><a href="#" zf-open="panel-config-depot">Gerer la connexion aux depots</a></h5>
+          <h5>Identification</h5>
+          <label>
+            Clé utilisateur
+            <input type="text" placeholder="Votre clé utilisateur">
+          </label>
+          <label>
+            Clé signature utilisateur
+            <input type="text" placeholder="Votre clé de signature utilisateur">
+          </label>
+          <a href="" class="button expand">Enregistrer</a>
+        </p>
+      </div>
+      <div zf-panel="" id="panel-config-depot" position="right">
+        <a zf-close="" class="close-button">×</a>
+        <p>
+          <h3>Gerer les depots</h3>
+          <h5><a zf-close="">Retour configuration</a></h5>
+          <h5>Connexion au depot</h5>
+          <label>
+            Adresse du depot
+            <input type="text" placeholder="http://depot.com/depot/">
+          </label>
+          <h5>Optionel</h5>
+          <label>
+            Clé du depot ( si requis )
+            <input type="text" placeholder="Votre clé d'accés au depot">
+          </label>
+          <a href="" class="button expand">Ajouter</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

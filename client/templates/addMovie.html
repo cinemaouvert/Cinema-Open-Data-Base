@@ -1,0 +1,277 @@
+---
+name: addMovie
+url: /add/movie/
+animationIn: fadeIn
+animationOut: fadeIn
+controller: AddMovieController
+---
+
+<div id="sidebar" class="small-0 medium-3 large-2  vertical grid-block">
+	<div class="grid-contener" >
+		<img src="/assets/img/no_picture_big.gif">
+	</div>
+	<div class="grid-content">
+		<section class="block-list custom-block-list">
+			<header>Informations</header>
+			<ul>
+				<li><a ng-click="Tab1 = true; Tab2 = false; Tab3 = false; Tab4 = false; Tab5 = false;">Général</a></li>
+				<li><a ng-click="Tab1 = false; Tab2 = true; Tab3 = false; Tab4 = false; Tab5 = false;">Technique</a></li>
+				<li><a ng-click="Tab1 = false; Tab2 = false; Tab3 = true; Tab4 = false; Tab5 = false;">Détails</a></li>
+				<li><a ng-click="Tab1 = false; Tab2 = false; Tab3 = false; Tab4 = true; Tab5 = false;">Légal</a></li>
+				<li><a ng-click="Tab1 = false; Tab2 = false; Tab3 = false; Tab4 = false; Tab5 = true;">Réseau</a></li>
+			</ul>
+		</section>
+	</div>
+</div>
+
+<div id="main" class="small-12 medium-9 large-10 grid-block vertical">
+	<div class="grid-block">
+		<div class="grid-content small-12">
+			<div class=""  ng-show="Tab1">
+				<h5>Informations générales</h5>
+				<p>
+					<label for="original_title">Titre Original</label>
+					<input type="text" name="original_title" placeholder="Titre original" ng-model="movie.original_title">
+					<label for="title_translation">Titre traduit</label>
+					<input type="text" name="title_translation" placeholder="Titre traduit" ng-model="movie.title_translation" >
+					<label for="saga">Saga</label>
+					<input type="text" name="saga" placeholder="La saga" ng-model="movie.saga">
+					<label for="adapted_from">Adapté de</label>
+					<input type="text" name="adapted_from" placeholder="Les genres du film" ng-model="movie.adapted_from">
+					<label for="production_country">Pays de prodution</label>
+					<input type="text" name="production_country" placeholder="Le pays de production" ng-model="movie.production_country">
+					<label for="completion_date">Date d'achévement</label>   
+					<input type="date" name="completion_date" placeholder="Date d'achèvement" ng-model="movie.completion_date">
+					<label for="shooting_technique">Technique de prise de vue</label>
+					<input type="text" name="shooting_technique" placeholder="Technique" ng-model="movie.shooting_technique">
+					<label for="duration">La durée</label>
+					<input type="number" name="duration" placeholder="La durée en minute" ng-model="movie.duration">
+					<label for="genre">Adapté de</label>
+					<input type="text" name="genre" placeholder="Les genres du film" ng-model="movie.genre">
+					<label for="pitch">Accroche
+						<textarea placeholder="Accroche" name="pitch" ng-model="movie.pitch"></textarea>
+					</label>
+					<label for="crew.name">Equipe</label>
+					<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew.name">
+					<input type="text" name="crew.function" placeholder="Nom et prenom" ng-model="movie.crew.function">
+
+					
+		
+					<label for="affiche">Affiche</label>
+					<input type="file" name="affiche"  ng-model="movie.affiche" base-sixty-four-input>
+					<label for="film_ecole">Film ecole</label>
+					<select name="film_ecole" id="film_ecole" ng-model="movie.film_ecole">
+					<option value="true">Oui</option>
+					<option value="false">Non</option>
+					</select>
+					Titre original : {{resource._api_data.original_title | isempty: 'Non renseigné' }} <br />
+					Titre traduit : {{resource._api_data.title_translation | isempty: 'Non renseigné' }} <br />
+					Saga : {{resource._api_data.saga | isempty: 'Non renseigné' }} <br />
+					Adapté de : {{resource._api_data.adapted_from | isempty: 'Non renseigné' }} <br />
+					Pays de production : {{resource._api_data.production_country | isempty: 'Non renseigné' }} <br />
+					Date d'achévement' : {{resource._api_data.completion_date | isempty: 'Non renseigné' }} <br />
+					Technique de prise de vue : {{resource._api_data.shooting_technique | isempty: 'Non renseigné' }} <br />
+					Durée : {{resource._api_data.duration | isempty: 'Non renseigné' }} minutes <br />
+					Genre : {{resource._api_data.genre | isempty: 'Non renseigné' }} <br />
+					Accroche : {{resource._api_data.pitch | isempty: 'Non renseigné' }}<br />
+					<b>Equipe :</b> <br />
+					<span ng-repeat="crew in resource._api_data.crew">
+						{{crew.name | isempty: 'Non renseigné' }} : {{crew.function | isempty: 'Non renseigné' }} <a href="{{crew._api_rsc_link._depot}}resource/{{crew._api_rsc_link._name}}/id/{{crew._api_rsc_link._id}}"><img zf-iconic="" icon="share-boxed" size="small"></a><br />
+					</span>
+					
+				</p>
+				
+			</div>
+			<div class=""  ng-show="Tab2">
+				<h5>Informations techniques</h5>
+				<p>
+					<label for="ratio">Ratio</label>
+					<input type="text" name="ratio" placeholder="Le ratio" ng-model="movie.ratio">
+					<label for="color">Couleur</label>
+					<input type="text" name="visuel" placeholder="oui ou non" ng-model="movie.color">
+					<label for="audio_channels_number">Nombre de canaux audio (de la bande originale)</label>
+					<input type="text" name="audio_channels_number" placeholder="Le format du son" ng-model="movie.audio_channels_number">
+					<label for="original_language">Langue originale</label>
+					<input type="text" name="original_language" placeholder="Langue originale" ng-model="movie.original_language">
+					<label for="available_languages">Langue disponible</label>
+					<input type="text" name="available_languages" placeholder="FR EN" ng-model="movie.available_languages">
+
+					<label for="available_subtitles">Sous-titre disponible</label>
+					<input type="text" name="available_subtitles" placeholder="FR EN" ng-model="movie.available_subtitles">
+					<label for="shooting_support">Support prise de vue</label>
+					<input type="text" name="shooting_support" placeholder="Support prise de vue" ng-model="movie.shooting_support">
+					<label for="md5sum">MD5SUM pour l'ocpm</label>
+					<input type="text" name="md5sum" placeholder="MD5SUM pour l'ocpm" ng-model="movie.md5sum">
+					<label for="sha1sum">SHA1SUM pour l'ocpm</label>
+					<input type="text" name="sha1sum" placeholder="SHA1SUM pour l'ocpm" ng-model="movie.sha1sum">
+					<label for="projection_support">Support de projection</label>
+					<input type="text" name="projection_support" placeholder="Support de projection" ng-model="movie.projection_support">
+					<label for="ocpm_link">Lien ocpm</label>
+					<input type="text" name="ocpm_link" placeholder="Lien ocpm" ng-model="movie.ocpm_link">
+					<label for="ocpm_link">Lien dcp</label>
+					<input type="text" name="ocpm_link" placeholder="Lien dcp" ng-model="movie.ocpm_link">
+					<label for="movie_resolution">Résolution du film</label>
+					<input type="text" name="movie_resolution" placeholder="Résolution du film" ng-model="movie.movie_resolution">
+					<label for="cadence">Cadence</label>
+					<input type="text" name="cadence" placeholder="Cadence" ng-model="movie.cadence">
+					<label for="interweaving">Entrelacement</label>
+					<input type="text" name="projection_support" placeholder="Entrelacement" ng-model="movie.interweaving">
+					<label for="audio_sample_rate">Fréquence échantillonnage audio</label>
+					<input type="text" name="audio_sample_rate" placeholder="Fréquence échantillonnage audio" ng-model="movie.audio_sample_rate">
+					<label for="projection_notes">Note de projection</label>
+					<input type="text" name="projection_notes" placeholder="Technique" ng-model="projection_notes.interweaving">
+
+
+
+
+					Ratio : {{resource._api_data.ratio | isempty: 'Non renseigné' }}<br />
+					Couleur : {{resource._api_data.color | isempty: 'Non renseigné' }}<br />
+					Nombre de canaux audio (de la bande originale) : {{resource._api_data.audio_channels_number | isempty: 'Non renseigné' }}<br />
+					Langue originale : {{resource._api_data.original_language | isempty: 'Non renseigné' }}<br />
+					Langue disponible : {{resource._api_data.available_languages | isempty: 'Non renseigné' }}<br />
+					Sous-titre disponible : {{resource._api_data.available_subtitles | isempty: 'Non renseigné' }}<br />
+					Support prise de vue : {{resource._api_data.shooting_support | isempty: 'Non renseigné' }}<br />
+					MD5SUM pour l'ocpm : {{resource._api_data.md5sum | isempty: 'Non renseigné' }}<br />
+					SHA1SUM pour l'ocpm : {{resource._api_data.md5sum | isempty: 'Non renseigné' }}<br />
+					Support de projection : {{resource._api_data.projection_support | isempty: 'Non renseigné' }}<br />
+					Lien ocpm : {{resource._api_data.ocpm_link | isempty: 'Non renseigné' }}<br />
+					Lien dcp : {{resource._api_data.dcp_link | isempty: 'Non renseigné' }}<br />
+					MD5SUM pour l'ocpm : {{resource._api_data.sha1sum | isempty: 'Non renseigné' }}<br />
+					MD5SUM pour l'ocpm : {{resource._api_data.md5sum | isempty: 'Non renseigné' }}<br />
+					MD5SUM pour l'ocpm : {{resource._api_data.md5sum | isempty: 'Non renseigné' }}<br />
+					Résolution du film : {{resource._api_data.movie_resolution | isempty: 'Non renseigné' }}<br />
+					Cadence : {{resource._api_data.cadence | isempty: 'Non renseigné' }}<br />
+					Entrelacement : {{resource._api_data.interweaving | isempty: 'Non renseigné' }}<br />
+					Fréquence échantillonnage audio : {{resource._api_data.audio_sample_rate | isempty: 'Non renseigné' }}<br />
+					Note de projection : {{resource._api_data.projection_notes | isempty: 'Non renseigné' }}<br />					
+				</p>
+				
+			</div>
+			<div class=""  ng-show="Tab3">
+				<h5>Informations detailées</h5>
+				<p>
+					<label for="first_movie">Premier film</label>
+					<input type="text" name="first_movie" placeholder="Premier film" ng-model="movie.first_movie">
+					<label for="production_year">Année de production</label>      
+					<input type="date" name="production_year" placeholder="Année de production" ng-model="movie.production_year">
+					<label for="number_of_versions">Nombre de versions</label>
+					<input type="text" name="number_of_versions" placeholder="Nombre de versions" ng-model="movie.number_of_versions">
+					<label for="school_movie">Film d'école</label>
+					<select name="school_movie" id="school_movie" ng-model="movie.school_movie">
+						<option value="true">Oui</option>
+						<option value="false">Non</option>
+					</select>
+					<label for="spectators_number">Nombre de spectateurs</label>
+					<input type="number" name="spectators_number" placeholder="Nombre de spectateurs" ng-model="movie.spectators_number">
+					<label for="summary">Résumé</label>
+					<input type="text" placeholder="Résumé" name="summary" ng-model="movie.summary">
+					<label for="movie_life">Vie du film
+						<textarea placeholder="Vie du film" name="movie_life" ng-model="movie.movie_life"></textarea>
+					</label>
+					<label for="scheduled_screening">Projection du film prévue
+						<textarea placeholder="Vie du film" name="scheduled_screening" ng-model="movie.scheduled_screening"></textarea>
+					</label>
+					<label for="movie_life">Projection du film passées
+						<textarea placeholder="Vie du film" name="past_screening" ng-model="movie.past_screening"></textarea>
+					</label>
+					<label for="attached_pdf">Fichiers joint pdf</label>
+					<input type="text" placeholder="Résumé" name="attached_pdf" ng-model="movie.attached_pdf">
+
+
+
+					Premier film : {{resource._api_data.first_movie | isempty: 'Non renseigné' }}<br />
+					Année de production : {{resource._api_data.production_year | isempty: 'Non renseigné' }}<br />
+					Nombre de versions : {{resource._api_data.number_of_versions | isempty: 'Non renseigné' }}<br />
+					Film d'école : {{resource._api_data.school_movie | isempty: 'Non renseigné' }}<br />
+					Nombre de spectateurs : {{resource._api_data.spectators_number | isempty: 'Non renseigné' }}<br />
+					Résumé : {{resource._api_data.summary | isempty: 'Non renseigné' }}<br />
+					Vie du film : {{resource._api_data.movie_life | isempty: 'Non renseigné' }}<br />
+					Projection du film prévue : {{resource._api_data.scheduled_screening | isempty: 'Non renseigné' }}<br />
+					Projection du film passées : {{resource._api_data.past_screening | isempty: 'Non renseigné' }}<br />
+					Fichiers joint pdf : {{resource._api_data.attached_pdf | isempty: 'Non renseigné' }}<br />
+
+				</p>
+				
+			</div>
+			<div class=""  ng-show="Tab4">
+				<h5>Informations légales</h5>
+				<p>
+				<label for="rights_holde_contact">Contact du détenteur des droits</label>
+				<input type="mail" placeholder="Contact du détenteur des droits" name="rights_holde_contact" ng-model="movie.rights_holde_contact">
+				<label for="acquired_visa">Visa  acquis</label>
+				<select name="acquired_visa" id="acquired_visa" ng-model="movie.acquired_visa">
+					<option value="true">Oui</option>
+					<option value="false">Non</option>
+				</select>
+				<span ng-show="movie.acquired_visa">
+					<label for="visa_number">Numéro de visa</label>
+					<input type="text" name="visa_number" placeholder="Numero de visa" ng-model="movie.visa_number">
+				</span>
+				<label for="acquired_isan">ISAN acquis</label>
+				<select name="acquired_isan" id="acquired_isan" ng-model="movie.acquired_isan">
+					<option value="true">Oui</option>
+					<option value="false">Non</option>
+				</select>
+				<span ng-show="movie.acquired_isan">
+					<label for="isan_number">Numéro de ISAN</label>
+					<input type="text" name="isan_number" placeholder="Numéro de ISAN" ng-model="movie.isan_number">
+				</span>
+				<label for="licence">Licence</label>
+				<select name="licence" id="licence" ng-model="movie.licence">
+					<option value="Licence Art Libre 1.3">Licence Art Libre 1.3</option>
+					<option value="Licence Publique">Licence Publique</option>
+					<option value="Creative Commons - BY">Creative Commons - BY</option>
+					<option value="Creative Commons - BY-ND">Creative Commons - BY-ND</option>
+					<option value="Creative Commons - BY-NC-ND">Creative Commons - BY-NC-ND</option>
+					<option value="Creative Commons - BY-NC">Creative Commons - BY-NC</option>
+					<option value="Creative Commons - BY-NC-SA">Creative Commons - BY-NC-SA</option>
+					<option value="Creative Commons - BY-SA">Creative Commons - BY-SA</option>
+				</select>
+				<label for="acquired_musical_rights">Droit musicaux acquis</label>
+				<select name="acquired_musical_rights" id="acquired_musical_rights" ng-model="movie.acquired_musical_rights">
+					<option value="true">Oui</option>
+					<option value="false">Non</option>
+				</select>
+				
+				<label for="compensation_type">Type de rémunération</label>
+				<input type="text" name="compensation_type" placeholder="Le type de rémunération" ng-model="movie.compensation_type">
+					Contact du détenteur des droits : {{resource._api_data.rights_holde_contact | isempty: 'Non renseigné' }}<br />
+					Visa  acquis : {{resource._api_data.acquired_visa | isempty: 'Non renseigné' }}<br />
+					Numéro de visa : {{resource._api_data.visa_number | isempty: 'Non renseigné' }}<br />
+					ISAN acquis : {{resource._api_data.acquired_isan | isempty: 'Non renseigné' }}<br />
+					Numéro de ISAN : {{resource._api_data.isan_number | isempty: 'Non renseigné' }}<br />
+					Licence : {{resource._api_data.licence | isempty: 'Non renseigné' }}<br />
+					Droits musicaux acquis : {{resource._api_data.acquired_musical_rights | isempty: 'Non renseigné' }}<br />
+					Type de rémunération : {{resource._api_data.compensation_type | isempty: 'Non renseigné' }}<br />
+				</p>
+			</div>
+			<div class=""  ng-show="Tab5">
+				<h5>Informations reseau</h5>
+				<p>
+					<label for="website_link">Lien vers le site du film</label>
+					<input type="text" placeholder="Url vers twitter" name="website_link" ng-model="movie.website_link">
+					<label for="facebook_link">Lien vers facebook du film</label>
+					<input type="text" placeholder="Url vers facebook" name="facebook_link" ng-model="movie.facebook_link">
+					<label for="twitter_link">Lien vers twitter du film </label>
+					<input type="text" placeholder="Url vers twitter" name="twitter_link" ng-model="movie.twitter_link">
+					<label for="trailer_link">Lien vers la bande annonce</label>
+					<input type="text" placeholder="Url de visionage bande annonce" name="trailer_link" ng-model="movie.trailer_link">
+					<label for="movie_streaming_link">Lien vers le film en streaming</label>
+					<input type="text" placeholder="Url de visionage" name="movie_streaming_link" ng-model="movie.movie_streaming_link">
+					<label for="movie_paying_streaming_link">Lien vers le film en streaming payant</label>
+					<input type="text" placeholder="Url de visionage payant" name="movie_paying_streaming_link" ng-model="movie.movie_paying_streaming_link">
+			
+					Lien vers le site du film  : {{resource._api_data.website_link | isempty: 'Non renseigné' }}<br />
+					Lien vers facebook du film : {{resource._api_data.facebook_link | isempty: 'Non renseigné' }}<br />
+					Lien vers twitter du film : {{resource._api_data.twitter_link | isempty: 'Non renseigné' }}<br />
+					Lien vers la bande annonce : {{resource._api_data.trailer_link | isempty: 'Non renseigné' }}<br />
+					Lien vers le film en streaming : {{resource._api_data.movie_streaming_link | isempty: 'Non renseigné' }}<br />
+					Lien vers le film en streaming payant : {{resource._api_data.movie_paying_streaming_link | isempty: 'Non renseigné' }}<br />
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="gallery-view grid-content shrink">
+		<a href="" class="button success expand hollow">AJOUTER UN FILM</a>
+	</div>
+</div>
