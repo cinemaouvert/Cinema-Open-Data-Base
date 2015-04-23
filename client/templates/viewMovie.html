@@ -10,6 +10,9 @@ controller: ViewMovieController
 	<div class="grid-contener card-img" ng-repeat="images_from_movie in resource._api_data.images_from_movie">
 		<img  class="{{images_from_movie.type}}" ng-src="{{images_from_movie._api_rsc_link._depot}}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}">
 	</div>
+	<div class="grid-contener card-img" ng-show="!resource._api_data.images_from_movie">
+		<img  class="poster" ng-src="/assets/img/no_picture_big.gif">
+	</div>
 	<div class="grid-content">
 		<section class="block-list custom-block-list">
 			<header>Informations</header>
@@ -47,6 +50,7 @@ controller: ViewMovieController
 					Genre : {{resource._api_data.genre | isempty: 'Non renseigné' }} <br />
 					Accroche : {{resource._api_data.pitch | isempty: 'Non renseigné' }}<br />
 					<b>Equipe :</b> <br />
+					<span ng-show="!resource._api_data.crew">Non renseigné</span>
 					<span ng-repeat="crew in resource._api_data.crew">
 						{{crew.name | isempty: 'Non renseigné' }} : {{crew.function | isempty: 'Non renseigné' }} <a href="{{crew._api_rsc_link._depot}}resource/{{crew._api_rsc_link._name}}/id/{{crew._api_rsc_link._id}}"><img zf-iconic="" icon="share-boxed" size="small"></a><br />
 					</span>
