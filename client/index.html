@@ -34,11 +34,11 @@
           <h5>Identification</h5>
           <label>
             Clé utilisateur
-            <input type="text" placeholder="Votre clé utilisateur">
+            <input type="text" placeholder="Votre clé utilisateur" value="{{client_depots[0].user_key}}">
           </label>
           <label>
             Clé signature utilisateur
-            <input type="text" placeholder="Votre clé de signature utilisateur">
+            <input type="text" placeholder="Votre clé de signature utilisateur" value="{{client_depots[0].user_password}}">
           </label>
           <a href="" class="button expand">Enregistrer</a>
         </p>
@@ -51,14 +51,14 @@
           <h5>Connexion au depot</h5>
           <label>
             Adresse du depot
-            <input type="text" placeholder="http://depot.com/depot/">
+            <input type="text" placeholder="http://depot.com/depot/" value="{{client_depots[0].href}}">
           </label>
           <h5>Optionel</h5>
           <label>
             Clé du depot ( si requis )
-            <input type="text" placeholder="Votre clé d'accés au depot">
+            <input type="text" placeholder="Votre clé d'accés au depot" value="{{client_depots[0].depot_key_password}}">
           </label>
-          <a href="" class="button expand">Ajouter</a>
+          <a href="" class="button expand">Enregistrer</a>
         </p>
       </div>
     </div>
