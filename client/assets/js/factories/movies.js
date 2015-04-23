@@ -49,7 +49,7 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 		},
 		addMovie: function(depot, data) { // A refaire
 			var deferred = $q.defer();
-				$http.post(depot+'?resolver='+depot+'&movie', data, {headers:{'Content-Type': 'application/json'}})
+				$http.post(depot+'resource/movie/', data, {headers:{'Content-Type': 'application/json'}})
 				.success(function(data, status){
 					if(status == "204"){
 						deferred.reject('Erreur : Pas de contenu');
