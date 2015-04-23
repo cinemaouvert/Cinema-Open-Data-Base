@@ -13,9 +13,9 @@ app.factory('AttachmentsFactory', function($http, $q) {
                 })
 				.success(function(data, status){
 					if(status == "204"){
-						deferred.reject('Erreur : Pas de contenu');
+						deferred.reject(data);
 					}else{
-						deferred.resolve('Film ajouté');
+						deferred.resolve(data);
 					}
 				}).error(function(data, status){
 					deferred.reject('Erreur : impossible d\'ajouter le film');
