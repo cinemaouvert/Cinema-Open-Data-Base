@@ -31,8 +31,8 @@ controller: AddMovieController
 			<div class=""  ng-show="Tab1">
 				<h5>Informations générales</h5>
 				<p>
-					<label for="original_title">Titre Original</label>
-					<input type="text" name="original_title" placeholder="Titre original" ng-model="movie.original_title">
+					<label for="original_title">Titre Original <b>*champ obligatoire</b></label>
+					<input type="text" name="original_title" placeholder="Titre original" ng-required="" ng-model="movie.original_title">
 					<label for="title_translation">Titre traduit</label>
 					<input type="text" name="title_translation" placeholder="Titre traduit" ng-model="movie.title_translation" >
 					<label for="saga">Saga</label>
@@ -47,10 +47,10 @@ controller: AddMovieController
 					<input type="text" name="shooting_technique" placeholder="Technique" ng-model="movie.shooting_technique">
 					<label for="duration">La durée</label>
 					<input type="number" name="duration" placeholder="La durée en minute" ng-model="movie.duration">
-					<label for="genre">Adapté de</label>
-					<input type="text" name="genre" placeholder="Les genres du film" ng-model="movie.genre">
-					<label for="pitch">Accroche
-						<textarea placeholder="Accroche" name="pitch" ng-model="movie.pitch"></textarea>
+					<label for="genre">Genres <b>*champ obligatoire</b></label>
+					<input type="text" name="genre" placeholder="Les genres du film" ng-required="" ng-model="movie.genre">
+					<label for="pitch">Accroche <b>*champ obligatoire</b>
+						<textarea placeholder="Accroche" ng-required="" name="pitch" ng-model="movie.pitch"></textarea>
 					</label>
 					<label for="crew.name">Equipe</label>
 					<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew.name">
