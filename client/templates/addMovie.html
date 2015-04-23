@@ -8,7 +8,8 @@ controller: AddMovieController
 
 <div id="sidebar" class="small-0 medium-3 large-2  vertical grid-block">
 	<div class="grid-contener" >
-		<img src="/assets/img/no_picture_big.gif">
+		<img ng-show="!movie.images_from_movie" src="/assets/img/no_picture_big.gif">
+		<img ng-show="movie.images_from_movie" src="data:{{movie.images_from_movie.filetype}};base64,{{movie.images_from_movie.base64}}">
 	</div>
 	<div class="grid-content">
 		<section class="block-list custom-block-list">
@@ -122,13 +123,13 @@ controller: AddMovieController
 						<textarea placeholder="Vie du film" name="movie_life" ng-model="movie.movie_life"></textarea>
 					</label>
 					<label for="scheduled_screening">Projection du film prévue
-						<textarea placeholder="Vie du film" name="scheduled_screening" ng-model="movie.scheduled_screening"></textarea>
+						<textarea placeholder="Projection du film prévue" name="scheduled_screening" ng-model="movie.scheduled_screening"></textarea>
 					</label>
 					<label for="movie_life">Projection du film passées
-						<textarea placeholder="Vie du film" name="past_screening" ng-model="movie.past_screening"></textarea>
+						<textarea placeholder="Projection du film passées" name="past_screening" ng-model="movie.past_screening"></textarea>
 					</label>
 					<label for="attached_pdf">Fichiers joint pdf</label>
-					<input type="text" placeholder="Résumé" name="attached_pdf" ng-model="movie.attached_pdf">
+					<input type="file"  name="attached_pdf" ng-model="movie.attached_pdf">
 				</p>
 				
 			</div>
