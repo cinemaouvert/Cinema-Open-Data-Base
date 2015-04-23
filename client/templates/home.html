@@ -66,7 +66,10 @@ controller: ListMoviesController
 			<div class="grid-container">
 				<div class="card">
 					<div class="card-img" ng-repeat="images_from_movie in resource._api_data.images_from_movie">
-						<img  class="{{images_from_movie.type}}" ng-src="{{images_from_movie._api_rsc_link._depot}}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}">
+						<img  class="{{images_from_movie.type}}" ng-src="{{images_from_movie._api_rsc_link._depot | isempty: 'Non renseigné' }}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}">
+					</div>
+					<div class="card-img" ng-show="!resource._api_data.images_from_movie">
+						<img  class="poster" ng-src="/assets/img/no_picture_big.gif">
 					</div>
 					<div class="card-info">
 						<div class="card-divider">
@@ -75,7 +78,7 @@ controller: ListMoviesController
 						<div class="card-section">
 							<p>{{resource._api_data.pitch}}</p>
 						</div>
-						<p class="card-link"><a class="button secondary expand" ui-sref="movie({id: resource._api_rsc._id})">Voir plus</a></p>
+						<p class="card-link"><a class="button secondary expand" ui-sref="movie({depot: resource._api_rsc._depot, id: resource._api_rsc._id, title: resource._api_data.original_title})">Voir plus</a></p>
 					</div>
 				</div>
 			</div>
@@ -88,6 +91,9 @@ controller: ListMoviesController
 				<div class="list">
 					<div class="list-img card-img" ng-repeat="images_from_movie in resource._api_data.images_from_movie">
 						<img class="{{images_from_movie.type}}" ng-src="{{images_from_movie._api_rsc_link._depot}}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}">
+					</div>
+					<div class="list-img card-img" ng-show="!resource._api_data.images_from_movie">
+						<img  class="poster" ng-src="/assets/img/no_picture_big.gif">
 					</div>
 					<div class="list-info">
 						<div class="list-divider">

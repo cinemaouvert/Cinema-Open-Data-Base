@@ -19,7 +19,7 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 		},
 		getMovies : function(depot) {
 			var deferred = $q.defer();
-				$http.get(depot+'resource/movie/')
+				$http.get(depot+'resolver/movie/')
 				.success(function(data, status){
 					if(status == "204"){
 						deferred.reject('Erreur : Pas de contenu');
