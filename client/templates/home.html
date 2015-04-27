@@ -98,10 +98,13 @@ controller: ListMoviesController
 					</div>
 					<div class="list-info">
 						<div class="list-divider">
-							{{resource._api_data.original_title}} <a class="" ui-sref="movie">Voir plus</a>
+							<h5>{{resource._api_data.original_title}} <a class="" ui-sref="movie({depot: resource._api_rsc._depot, id: resource._api_rsc._id, title: resource._api_data.original_title})">Voir plus</a></h5> 
 						</div>
 						<div class="list-section">
-							<p>{{resource._api_data.pitch}}</p>
+							<p>
+								Accroche : {{resource._api_data.pitch}} <br />
+								Genre : {{resource._api_data.genre | isempty: 'Non renseigné' }}
+							</p>
 						</div>
 					</div>
 				</div>
