@@ -61,12 +61,12 @@ controller: ListMoviesController
 		</div>
 	</div>
 
-	<div class="grid-block small-up-1 medium-up-2 large-up-4 " ng-show="OptionListCard">
+	<div class="grid-block small-up-1 medium-up-3 large-up-5 " ng-show="OptionListCard">
 		<div ng-repeat="resource in resources" class="grid-block">
 			<div class="grid-container" style="width: 100%;">
 				<div class="card">
-					<div class="card-img" ng-repeat="images_from_movie in resource._api_data.images_from_movie">
-						<div class="{{images_from_movie.type}}" style="background : url('{{images_from_movie._api_rsc_link._depot }}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}'); background-size: cover; z-index:999;   height: 15rem; width: 100%; "></div>
+					<div class="card-img" ng-repeat="images_from_movie in resource._api_data.images_from_movie" style="background: url('assets/img/load.jpg'); background-size: cover;">
+						<div class="{{images_from_movie.type}}" style="background: url('assets/img/load.jpg'); background : url('{{images_from_movie._api_rsc_link._depot }}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}'); background-size: cover; z-index:999;   height: 15rem; width: 100%; "></div>
 					</div>
 					<div class="card-img" ng-show="!resource._api_data.images_from_movie">
 						<div class="poster" style="background : url('assets/img/no_picture_big.gif'); background-size: cover; z-index:999;   height: 15rem; width: 100%;"></div>

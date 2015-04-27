@@ -7,8 +7,8 @@ controller: ViewMovieController
 ---
 
 <div id="sidebar" class="small-0 medium-3 large-2  vertical grid-block">
-	<div class="grid-contener card-img" ng-repeat="images_from_movie in resource._api_data.images_from_movie">
-		<img  class="{{images_from_movie.type}}" ng-src="{{images_from_movie._api_rsc_link._depot}}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}">
+	<div class="grid-contener card-img" ng-repeat="images_from_movie in resource._api_data.images_from_movie" style="background: url('assets/img/load.jpg'); background-size: ">
+		<img  class="{{images_from_movie.type}}" ng-src="{{images_from_movie._api_rsc_link._depot}}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}" style="min-height:25rem">
 	</div>
 	<div class="grid-contener card-img" ng-show="!resource._api_data.images_from_movie">
 		<img  class="poster" ng-src="/assets/img/no_picture_big.gif">
