@@ -28,9 +28,11 @@
         <a zf-close="" class="close-button">×</a>
         <p>
           <h3>Configuration</h3>
-          
           <h5>Connexion au depot</h5>
-          <h5><a href="#" zf-open="panel-config-depot">Gerer la connexion aux depots</a></h5>
+          <label>
+            Adresse du depot
+            <input type="text" placeholder="http://depot.com/depot/" value="{{client_depots[0].href}}">
+          </label>
           <h5>Identification</h5>
           <label>
             Clé utilisateur
@@ -40,24 +42,12 @@
             Clé signature utilisateur
             <input type="text" placeholder="Votre clé de signature utilisateur" value="{{client_depots[0].user_password}}">
           </label>
-          <a href="" class="button expand">Enregistrer</a>
-        </p>
-      </div>
-      <div zf-panel="" id="panel-config-depot" position="right">
-        <a zf-close="" class="close-button">×</a>
-        <p>
-          <h3>Gerer les depots</h3>
-          <h5><a zf-close="">Retour configuration</a></h5>
-          <h5>Connexion au depot</h5>
-          <label>
-            Adresse du depot
-            <input type="text" placeholder="http://depot.com/depot/" value="{{client_depots[0].href}}">
-          </label>
           <h5>Optionel</h5>
           <label>
             Clé du depot ( si requis )
             <input type="text" placeholder="Votre clé d'accés au depot" value="{{client_depots[0].depot_key_password}}">
           </label>
+          
           <a href="" class="button expand">Enregistrer</a>
         </p>
       </div>
