@@ -7,13 +7,13 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 				$http.get(depot+'resource/movie/id/'+id)
 				.success(function(data, status){
 					if(status == "204"){
-						deferred.reject('Erreur : Pas de contenu');
+						deferred.reject('Pas de contenu');
 					}else{
 						factory.movie = data;
 						deferred.resolve(factory.movie); 
 					}
 				}).error(function(data, status){
-					deferred.reject('Erreur : impossible de se connecter au depot');
+					deferred.reject('Impossible de se connecter au depot');
 				})
 				return deferred.promise;
 		},
@@ -22,13 +22,13 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 				$http.get(depot+'resolver/movie/')
 				.success(function(data, status){
 					if(status == "204"){
-						deferred.reject('Erreur : Pas de contenu');
+						deferred.reject('Pas de contenu');
 					}else{
 						factory.movies = data;
 						deferred.resolve(factory.movies); 
 					}
 				}).error(function(data, status){
-					deferred.reject('Erreur : impossible de se connecter au depot');
+					deferred.reject('Impossible de se connecter au depot');
 				})
 				return deferred.promise;
 		},
@@ -37,13 +37,13 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 				$http.get(depot+'?resolver&movies&key_user='+key_user)
 				.success(function(data, status){
 					if(status == "204"){
-						deferred.reject('Erreur : Pas de contenu');
+						deferred.reject('Pas de contenu');
 					}else{
 						factory.movies = data;
 						deferred.resolve(factory.movies); 
 					}
 				}).error(function(data, status){
-					deferred.reject('Erreur : impossible de se connecter au depot');
+					deferred.reject('Impossible de se connecter au depot');
 				})
 				return deferred.promise;
 		},
@@ -64,7 +64,7 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 						deferred.resolve(data);
 					}
 				}).error(function(data, status){
-					deferred.reject('Erreur : impossible d\'ajouter le film');
+					deferred.reject('Impossible d\'ajouter le film');
 				})
 				return deferred.promise;
 		}
