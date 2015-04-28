@@ -28,31 +28,31 @@
         <a zf-close="" class="close-button">×</a>
         <p>
           <h3>Configuration</h3>
-          <h5>Connexion au depot</h5>
-          <label>
-            Adresse du depot
-            <input type="text" placeholder="http://depot.com/depot/" value="{{client_depots[0].href}}">
-          </label>
-          <h5>Identification</h5>
-          <label>
-            Clé utilisateur
-            <input type="text" placeholder="Votre clé utilisateur" value="{{client_depots[0].user_key}}">
-          </label>
-          <label>
-            Clé signature utilisateur
-            <input type="text" placeholder="Votre clé de signature utilisateur" value="{{client_depots[0].user_password}}">
-          </label>
-          <h5>Optionel</h5>
-          <label>
-            Clé du depot ( si requis )
-            <input type="text" placeholder="Votre clé d'accés au depot" value="{{client_depots[0].depot_key_password}}">
-          </label>
-          
-          <a href="" class="button expand">Enregistrer</a>
+          <form>
+            <h5>Connexion au depot</h5>
+            <label>
+              Adresse du depot
+              <input type="text" ng-model="configAdress" placeholder="{{client_depots[0].href}}">
+            </label>
+            <h5>Identification</h5>
+            <label>
+              Clé utilisateur
+              <input type="text" ng-model="configUserKey" placeholder="{{client_depots[0].user_key}}">
+            </label>
+            <label>
+              Clé signature utilisateur
+              <input type="text" ng-model="configUserPassword" placeholder="{{client_depots[0].user_password}}">
+            </label>
+            <h5>Optionel</h5>
+            <label>
+              Clé du depot ( si requis )
+              <input type="text" ng-model="configDepotKeyPassword" placeholder="{{client_depots[0].depot_key_password}}">
+            </label>
+            <a href="" ng-click="submitConfig()" class="button expand">Enregistrer</a>
+          </form>
         </p>
       </div>
-      <zf-notification-set id="notification-fail"></zf-notification-set>
-      <zf-notification-set id="notification-success"></zf-notification-set>
+      <zf-notification-set id="notification-panel"></zf-notification-set>
     </div>
   </body>
 </html>

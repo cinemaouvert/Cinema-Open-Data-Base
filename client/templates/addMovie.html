@@ -35,6 +35,8 @@ controller: AddMovieController
 					<input type="text" name="original_title" placeholder="Titre original" ng-required="" ng-model="movie.original_title">
 					<label for="title_translation">Titre traduit</label>
 					<input type="text" name="title_translation" placeholder="Titre traduit" ng-model="movie.title_translation" >
+					<label for="images_from_movie">Affiche Principal ( jpeg/jpg/png )</label>
+					<input type="file" name="images_from_movie" accept="image/jpeg,image/gif,image/png"  ng-model="movie.images_from_movie" base-sixty-four-input ><br /><br />
 					<label for="saga">Saga</label>
 					<input type="text" name="saga" placeholder="La saga" ng-model="movie.saga">
 					<label for="adapted_from">Adapté de</label>
@@ -53,12 +55,71 @@ controller: AddMovieController
 						<textarea placeholder="Accroche" ng-required="" name="pitch" ng-model="movie.pitch"></textarea>
 					</label>
 					<label for="crew.name">Equipe</label>
-					<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew.name">
-					<input type="text" name="crew.function" placeholder="Nom et prenom" ng-model="movie.crew.function">
-					<label for="images_from_movie">Affiche Principal</label>
-					<input type="file" name="images_from_movie"  ng-model="movie.images_from_movie" base-sixty-four-input>
+					<div class="grid-block" >
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew[1].name" >
+						</div>
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.function" placeholder="Fonction" ng-model="movie.crew[1].function" >
+						</div>
+					</div>
+					<div class="grid-block" >
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew[2].name" >
+						</div>
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.function" placeholder="Fonction" ng-model="movie.crew[2].function" >
+						</div>
+					</div>
+					<div class="grid-block" >
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew[3].name" >
+						</div>
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.function" placeholder="Fonction" ng-model="movie.crew[3].function" >
+						</div>
+					</div>
+					<div class="grid-block" >
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew[4].name" >
+						</div>
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.function" placeholder="Fonction" ng-model="movie.crew[4].function" >
+						</div>
+					</div>
+					<div class="grid-block" >
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew[5].name" >
+						</div>
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.function" placeholder="Fonction" ng-model="movie.crew[5].function" >
+						</div>
+					</div>
+					<div class="grid-block" >
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew[6].name" >
+						</div>
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.function" placeholder="Fonction" ng-model="movie.crew[6].function" >
+						</div>
+					</div>
+					<div class="grid-block" >
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew[7].name" >
+						</div>
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.function" placeholder="Fonction" ng-model="movie.crew[7].function" >
+						</div>
+					</div>
+					<div class="grid-block" >
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.name" placeholder="Nom et prenom" ng-model="movie.crew[8].name" >
+						</div>
+						<div class="small-12 medium-6 grid-content">
+							<input type="text" name="crew.function" placeholder="Fonction" ng-model="movie.crew[8].function" >
+						</div>
+					</div>
 				</p>
-				
 			</div>
 			<div class=""  ng-show="Tab2">
 				<h5>Informations techniques</h5>
@@ -128,8 +189,8 @@ controller: AddMovieController
 					<label for="movie_life">Projection du film passées
 						<textarea placeholder="Projection du film passées" name="past_screening" ng-model="movie.past_screening"></textarea>
 					</label>
-					<label for="attached_pdf">Fichiers joint pdf</label>
-					<input type="file"  name="attached_pdf" ng-model="movie.attached_pdf">
+					<label for="attached_pdf">Fichier joint pdf</label>
+					<input type="file"  name="attached_pdf" ng-model="movie.attached_pdf" accept="application/pdf">
 				</p>
 				
 			</div>
@@ -137,13 +198,13 @@ controller: AddMovieController
 				<h5>Informations légales</h5>
 				<p>
 					<label for="rights_holde_contact">Contact du détenteur des droits</label>
-					<input type="mail" placeholder="Contact du détenteur des droits" name="rights_holde_contact" ng-model="movie.rights_holde_contact">
+					<input type="email" placeholder="Contact du détenteur des droits" name="rights_holde_contact" ng-model="movie.rights_holde_contact">
 					<label for="acquired_visa">Visa  acquis</label>
 					<select name="acquired_visa" id="acquired_visa" ng-model="movie.acquired_visa">
 						<option value="true">Oui</option>
 						<option value="false">Non</option>
 					</select>
-					<span ng-show="movie.acquired_visa">
+					<span ng-show="movie.acquired_visa  == 'true'">
 						<label for="visa_number">Numéro de visa</label>
 						<input type="text" name="visa_number" placeholder="Numero de visa" ng-model="movie.visa_number">
 					</span>
@@ -152,7 +213,7 @@ controller: AddMovieController
 						<option value="true">Oui</option>
 						<option value="false">Non</option>
 					</select>
-					<span ng-show="movie.acquired_isan">
+					<span ng-show="movie.acquired_isan == 'true'">
 						<label for="isan_number">Numéro de ISAN</label>
 						<input type="text" name="isan_number" placeholder="Numéro de ISAN" ng-model="movie.isan_number">
 					</span>

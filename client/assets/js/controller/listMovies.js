@@ -5,10 +5,6 @@ app.controller('ListMoviesController', function ($scope, $rootScope, MoviesFacto
   $scope.resources = MoviesFactory.getMovies($rootScope.client_depots[0].href).then(function(data){
     $scope.resources = data;
   }, function(msg){
-    FoundationApi.publish('notification-fail', {
-                        title: 'Erreur :(',
-                        content: msg,
-                        color: 'alert'
-                    });
+    FoundationApi.publish('notification-panel', { title: 'Erreur :(', content: msg, color: 'alert' });
   });
 });
