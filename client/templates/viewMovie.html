@@ -11,7 +11,7 @@ controller: ViewMovieController
 		<img  class="{{images_from_movie.type}}" ng-src="{{images_from_movie._api_rsc_link._depot}}echo/attachment/id/{{images_from_movie._api_rsc_link._id}}" style="min-height:25rem">
 	</div>
 	<div class="grid-contener card-img" ng-show="!resource._api_data.images_from_movie">
-		<img  class="poster" ng-src="/assets/img/no_picture_big.gif">
+		<img class="poster" ng-src="/assets/img/no_picture_big.gif">
 	</div>
 	<div class="grid-content">
 		<section class="block-list custom-block-list">
@@ -28,13 +28,14 @@ controller: ViewMovieController
 </div>
 
 <div id="main" class="small-12 medium-9 large-10 grid-block vertical">
-	<div class="shrink grid-content main-option">
-		<a class="button hollow success" zf-open="deleteMovieModal" >Modifier les informations du film</a>
-		<a class="button hollow alert" zf-open="deleteMovieModal" >Supprimer le film</a>
-		<span style="float:right; margin-top:0.8rem;">Edité le : {{resource._api_data._edited_on}}</span>
+	<div class="shrink grid-content main-option" ng-show="option">
+		<a class="button hollow success" zf-open="deleteMovieModal" ng-show="optionEdit">Modifier les informations du film</a>
+		<a class="button hollow alert" zf-open="deleteMovieModal" ng-show="optionDelete">Supprimer le film</a>
+		
 	</div>
 	<div class="grid-block">
 		<div class="grid-content small-12">
+			<span style="float:right; margin-top:0.5rem;">Edité le : {{resource._api_data._edited_on}}</span>
 			<div class=""  ng-show="Tab1">
 				<h5>Informations générales</h5>
 				<p>
@@ -93,7 +94,11 @@ controller: ViewMovieController
 					Vie du film : {{resource._api_data.movie_life | isempty: 'Non renseigné' }}<br />
 					Projection du film prévue : {{resource._api_data.scheduled_screening | isempty: 'Non renseigné' }}<br />
 					Projection du film passées : {{resource._api_data.past_screening | isempty: 'Non renseigné' }}<br />
-					Fichiers joint pdf : {{resource._api_data.attached_pdf | isempty: 'Non renseigné' }}<br />
+					Fichiers joint pdf : 
+					<span ng-show="!resource._api_data.attached_pdf">Non renseigné</span>
+					<span ng-repeat="attached_pdf in resource._api_data.attached_pdf">
+						PDF disponible <a href="{{attached_pdf._api_rsc_link._depot}}echo/attachment/id/{{attached_pdf._api_rsc_link._id}}" target="_blank">ici</a><br />
+					</span>
 
 				</p>
 				
