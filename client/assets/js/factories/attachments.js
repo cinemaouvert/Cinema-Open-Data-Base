@@ -22,11 +22,18 @@ app.factory('AttachmentsFactory', function($http, $q) {
 				})
 				return deferred.promise;
 		},
-		delAttachment : function(depot,id) {
+		delAttachment : function(depot, data, id) {
 			var deferred = $q.defer();
-			$http.delete(depot+'resource/attachment/id/'+id)
+			$http({
+
+                    url: depot+'resource/attachment/id/'+id,
+                    data: data,
+                    method: 'DELETE',
+                    headers : {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+
+                })
 			.success(function(data, status){
-				deferred.resolve('Film supprimé'); 
+				deferred.resolve(); 
 			}).error(function(data, status){
 				if(status == "404"){
 					deferred.reject('Pas de contenu');

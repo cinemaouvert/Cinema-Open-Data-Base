@@ -70,11 +70,18 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 				})
 				return deferred.promise;
 		},
-		delMovie : function(depot,id) {
+		delMovie : function(depot,data,id) {
 			var deferred = $q.defer();
-			$http.delete(depot+'resource/movie/id/'+id)
+			$http({
+
+                    url: depot+'resource/movie/id/'+id,
+                    data: data,
+                    method: 'DELETE',
+                    headers : {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+
+                })
 			.success(function(data, status){
-				deferred.resolve('Film supprimé'); 
+				deferred.resolve(); 
 			}).error(function(data, status){
 				if(status == "404"){
 					deferred.reject('Pas de contenu');

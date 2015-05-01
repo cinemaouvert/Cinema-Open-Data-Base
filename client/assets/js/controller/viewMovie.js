@@ -1,4 +1,4 @@
-app.controller('ViewMovieController', function ($scope, $rootScope, MoviesFactory, $stateParams, FoundationApi, $location) {
+app.controller('ViewMovieController', function ($scope, $rootScope, MoviesFactory, AttachmentsFactory, $stateParams, FoundationApi, $location) {
 
   $scope.resource = MoviesFactory.getMovie($stateParams.depot, $stateParams.id).then(function(data){
     $scope.resource = data;
@@ -26,6 +26,30 @@ app.controller('ViewMovieController', function ($scope, $rootScope, MoviesFactor
   $scope.Tab3 = false;
   $scope.Tab4 = false;
   $scope.Tab5 = false;
+
+  $scope.DeleteMovie = function() {
+
+    $scope.auth = 
+      {
+        _api_key_user : $rootScope.client_depots[0].user_key,
+        _api_key_password : $rootScope.client_depots[0].user_password,
+        _api_key_access : $rootScope.client_depots[0].depot_key_password
+      };
+
+    if (angular.isDefined( $scope.resource ) && angular.isDefined( $scope.resource._api_data.images_from_movie )) {
+      AttachmentsFactory.delAttachment($scope.resource._api_data.images_from_movie[1]._api_rsc_link._depot, $scope.auth, $scope.resource._api_data.images_from_movie[1]._api_rsc_link._id).then(function(data){});
+    }
+
+    if (angular.isDefined( $scope.resource ) && angular.isDefined( $scope.resource._api_data.attached_pdf )) {
+      AttachmentsFactory.delAttachment($scope.resource._api_data.attached_pdf[1]._api_rsc_link._depot, $scope.auth, $scope.resource._api_data.attached_pdf[1]._api_rsc_link._id).then(function(data){});
+    }
+
+    MoviesFactory.delMovie($scope.resource._api_rsc._depot, $scope.auth, $scope.resource._api_rsc._id).then(function(data){
+      FoundationApi.publish('notification-panel', { title: 'Film supprimé !', content: '', color: 'success' });
+      $location.path("ListMoviesController");
+    });
+
+  }
 
   
   
