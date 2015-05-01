@@ -9,7 +9,7 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 					factory.movie = data;
 					deferred.resolve(factory.movie); 
 				}).error(function(data, status){
-					if(status == "404"){
+					if(status == 404){
 						deferred.reject('Pas de contenu');
 					}else{
 						factory.movie = data;
@@ -23,14 +23,16 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 			var deferred = $q.defer();
 				$http.get(depot+'resolver/movie/')
 				.success(function(data, status){
-					if(status == "204"){
-						deferred.reject('Pas de contenu');
-					}else{
+					
 						factory.movies = data;
 						deferred.resolve(factory.movies); 
-					}
+					
 				}).error(function(data, status){
-					deferred.reject('Impossible de se connecter au depot');
+					if(status == "404"){
+						deferred.reject('Pas de contenu');
+					}else{
+						deferred.reject('Impossible de se connecter au depot');
+					}
 				})
 				return deferred.promise;
 		},

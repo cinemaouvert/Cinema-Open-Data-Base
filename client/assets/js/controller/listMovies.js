@@ -8,5 +8,6 @@ app.controller('ListMoviesController', function ($scope, $rootScope, MoviesFacto
     $scope.Loader = false;
   }, function(msg){
     FoundationApi.publish('notification-panel', { title: 'Erreur :(', content: msg, color: 'alert' });
+      $scope.Loader = false;
   });
 });
