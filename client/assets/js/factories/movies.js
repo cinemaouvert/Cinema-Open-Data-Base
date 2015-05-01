@@ -69,6 +69,22 @@ app.factory('MoviesFactory', function($http, $q) { // probleme $scope  - finir l
 					deferred.reject('Impossible d\'ajouter le film');
 				})
 				return deferred.promise;
+		},
+		delMovie : function(depot,id) {
+			var deferred = $q.defer();
+			$http.delete(depot+'resource/movie/id/'+id)
+			.success(function(data, status){
+				deferred.resolve('Film supprimé'); 
+			}).error(function(data, status){
+				if(status == "404"){
+					deferred.reject('Pas de contenu');
+				}else{
+					factory.movie = data;
+					deferred.resolve(factory.movie); 
+				}
+				deferred.reject('Impossible de se connecter au depot');
+			})
+			return deferred.promise;
 		}
 	}
 	return factory;

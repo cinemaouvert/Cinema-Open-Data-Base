@@ -21,6 +21,22 @@ app.factory('AttachmentsFactory', function($http, $q) {
 					deferred.reject('Erreur : impossible d\'ajouter le film');
 				})
 				return deferred.promise;
+		},
+		delAttachment : function(depot,id) {
+			var deferred = $q.defer();
+			$http.delete(depot+'resource/attachment/id/'+id)
+			.success(function(data, status){
+				deferred.resolve('Film supprimé'); 
+			}).error(function(data, status){
+				if(status == "404"){
+					deferred.reject('Pas de contenu');
+				}else{
+					factory.movie = data;
+					deferred.resolve(factory.movie); 
+				}
+				deferred.reject('Impossible de se connecter au depot');
+			})
+			return deferred.promise;
 		}
 	}
 	return factory;
