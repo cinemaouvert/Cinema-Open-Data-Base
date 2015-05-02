@@ -77,7 +77,7 @@ controller: ListMoviesController
 							<b>{{resource._api_data.original_title | isempty: 'Non renseigné'}}</b>
 						</div>
 						<div class="card-section">
-							<p>{{resource._api_data.pitch | isempty: 'Non renseigné'}}</p>
+							<p>{{resource._api_data.pitch | limitTo : 130 : 0 | isempty: 'Non renseigné'}} ...</p>
 						</div>
 						<p class="card-link"><a class="button secondary expand" ui-sref="movie({depot: resource._api_rsc._depot, id: resource._api_rsc._id, title: resource._api_data.original_title})">Voir plus</a></p>
 					</div>
