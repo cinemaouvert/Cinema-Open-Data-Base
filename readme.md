@@ -1,6 +1,6 @@
-# Foundation for Apps Template
+# CODB-CLIENT
 
-This is the default template project for Foundation for Apps, powered by Gulp, Angular, and libsass. It provides you with a basic template to get started with Foundation for Apps and Angular.
+This is CODB-CLIENT, powered by Gulp, Angular, Foundation for Apps, and libsass. 
 
 If you're already an Angular developer, you may instead want to install the components into your own stack using Bower: `bower install foundation-apps`
 
@@ -19,7 +19,7 @@ You'll need the following software installed to get started.
 Clone this repository, where `app` is the name of your app.
 
 ```bash
-git clone https://github.com/zurb/foundation-apps-template.git app
+git clone https://github.com/Nicoaedhel/codb-client.git app
 ```
 
 Change into the directory.
@@ -41,7 +41,7 @@ While you're working on your project, run:
 npm start
 ```
 
-This will compile the Sass and assemble your Angular app. **Now go to `localhost:8080` in your browser to see it in action.** When you change any file in the `client` folder, the appropriate Gulp task will run to build new files.
+This will compile the Sass and assemble your CODB-CLIENT. **Now go to `localhost:8080` in your browser to see it in action.** When you change any file in the `client` folder, the appropriate Gulp task will run to build new files.
 
 To run the compiling process once, without watching any files, use the `build` command.
 
