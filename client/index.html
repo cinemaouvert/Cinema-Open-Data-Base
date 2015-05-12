@@ -22,34 +22,46 @@
           <span class="right"><a href="#" zf-open="panel-config"><img zf-iconic="" icon="cog" size="small" class="iconic-color-primary"></a></span>
         </div>
       </div>
-      <div ui-view class="grid-block">
+      <div ui-view ng-show="client_depots[0].href"class="grid-block">
+      </div>
+      <div ng-hide="client_depots[0].href">
+        <div class="grid-block">
+          <div class="grid-container">
+            <center>
+              <h2>Bonjour</h2>
+              <p>Vous n'êtes actuellement connecté à aucun depot. Pour vous connecter à un depot codb, et consulter les films assosiés à ce dernier, entrer l'adresse ci dessous.</p>
+              <br>
+              <input type="text" ng-model="init.client_depots[0].href" placeholder="http://adressedudepot/depot/" >
+              <a href="" ng-click="submitInit()" class="button expand">Connection</a>
+            </center>
+          </div>
+        </div>
+        
       </div>
       <div zf-panel="" id="panel-config" position="right">
         <a zf-close="" class="close-button">×</a>
         <p>
           <h3>Configuration</h3>
-          <form>
             <h5>Connexion au depot</h5>
             <label>
               Adresse du depot
-              <input type="text" ng-model="configAdress" placeholder="{{client_depots[0].href}}">
+              <input type="text" ng-model="client_depots[0].href" >
             </label>
             <h5>Identification</h5>
             <label>
               Clé utilisateur
-              <input type="text" ng-model="configUserKey" placeholder="{{client_depots[0].user_key}}">
+              <input type="text" ng-model="client_depots[0].user_key" >
             </label>
             <label>
               Clé signature utilisateur
-              <input type="text" ng-model="configUserPassword" placeholder="{{client_depots[0].user_password}}">
+              <input type="text" ng-model="client_depots[0].user_password" >
             </label>
             <h5>Optionel</h5>
             <label>
               Clé du depot ( si requis )
-              <input type="text" ng-model="configDepotKeyPassword" placeholder="{{client_depots[0].depot_key_password}}">
+              <input type="text" ng-model="client_depots[0].depot_key_password" >
             </label>
             <a href="" ng-click="submitConfig()" class="button expand">Enregistrer</a>
-          </form>
         </p>
       </div>
       <zf-notification-set id="notification-panel"></zf-notification-set>

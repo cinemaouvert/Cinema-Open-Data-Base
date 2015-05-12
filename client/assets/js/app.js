@@ -13,16 +13,27 @@ var app = angular.module('application', [
 
 config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-app.controller("AppController", function($scope,$rootScope) {
+app.controller("AppController", function($scope,$rootScope, FoundationApi, $location, $window) {
   $rootScope.client_depots = 
     [
       {
-        href : 'http://localhost:8888/codb-depot/codb-depot-file/',
-        depot_key_password : '552ce3b328a312.98946512',
-        user_key : '1234',
-        user_password : '1234'
+        href : localStorage.client_depots_1_href,
+        depot_key_password : localStorage.client_depots_1_depot_key_password,
+        user_key : localStorage.client_depots_1_user_key,
+        user_password : localStorage.client_depots_1_user_password
       },
     ];
+  $scope.submitConfig = function() {
+    localStorage.setItem("client_depots_1_href", $scope.client_depots[0].href);
+    localStorage.setItem("client_depots_1_depot_key_password", $scope.client_depots[0].depot_key_password);
+    localStorage.setItem("client_depots_1_user_key", $scope.client_depots[0].user_key);
+    localStorage.setItem("client_depots_1_user_password", $scope.client_depots[0].user_password);
+    $window.location.reload();
+  }
+  $scope.submitInit = function() {
+    localStorage.setItem("client_depots_1_href", $scope.init.client_depots[0].href);
+    $window.location.reload();
+  }
 });
 
 app.directive('baseSixtyFourInput', ['$window', function ($window) {
