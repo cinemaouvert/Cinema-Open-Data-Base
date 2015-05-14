@@ -14,7 +14,7 @@
     <div class="vertical grid-frame">
       <div class="shrink grid-content" style="padding: 0;">
         <ul class="primary menu-bar">
-          <li><a><strong>Cinema Open Data Base Client</strong></a></li>
+          <li><a><strong>Open Rhizome Deposit</strong></a></li>
         </ul>
         <div class="title-bar custom-title-bar">
           <span class="left"><a ui-sref="home"><img zf-iconic="" icon="home" size="small" class="iconic-color-primary"></a></span>
@@ -28,8 +28,11 @@
         <div class="grid-block">
           <div class="grid-container">
             <center>
+              <img src="assets/img/logo.png" style="margin:2rem; width:10rem;">
               <h2>Bonjour</h2>
-              <p>Vous n'êtes actuellement connecté à aucun depot. Pour vous connecter à un depot codb, et consulter les films assosiés à ce dernier, entrer l'adresse ci dessous.</p>
+              <p>Vous n'êtes actuellement connecté à aucun depot. Pour vous connecter à un depot codb, et consulter les films assosiés à ce dernier, entrer l'adresse ci dessous.
+              <br /><br />Le catalogue ouvert du cinema a ouvert son depot codb. Voiçi l'adresse : <b>http://cinemaouvert.fr/depot/</b>
+              </p>
               <br>
               <input type="text" ng-model="init.client_depots[0].href" placeholder="http://adressedudepot/depot/" >
               <a href="" ng-click="submitInit()" class="button expand">Connection</a>

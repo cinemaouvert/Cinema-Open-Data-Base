@@ -32,6 +32,13 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 	li:first-child{
 	border-top: 0;
 	}
+	.inactive{
+		color:#ccc;
+	}
+	.inactive:hover{
+		color:#ccc;
+		cursor: default;
+	}
 }
 
 .custom-title-bar {
