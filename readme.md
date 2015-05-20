@@ -1,8 +1,6 @@
-# CODB-CLIENT
+# Cinema-Open-Data-Base
 
-This is CODB-CLIENT, powered by Gulp, Angular, Foundation for Apps, and libsass. 
-
-If you're already an Angular developer, you may instead want to install the components into your own stack using Bower: `bower install foundation-apps`
+This is Cinema-Open-Data-Base, powered by Gulp, Angular, Foundation for Apps, and libsass. 
 
 ## Requirements
 
@@ -19,7 +17,7 @@ You'll need the following software installed to get started.
 Clone this repository, where `app` is the name of your app.
 
 ```bash
-git clone https://github.com/Nicoaedhel/codb-client.git app
+git clone https://github.com/cinemaouvert/Cinema-Open-Data-Base.git app
 ```
 
 Change into the directory.
