@@ -1,6 +1,5 @@
 app.controller('ViewMovieController', function ($scope, $rootScope, MoviesFactory, AttachmentsFactory, $stateParams, FoundationApi, $location) {
-
-  $scope.resource = MoviesFactory.getMovie($stateParams.depot, $stateParams.id).then(function(data){
+  $scope.resource = MoviesFactory.getMovie(decodeURIComponent($stateParams.depot), $stateParams.id).then(function(data){
     $scope.resource = data;
     if ($scope.resource._api_key_user == $rootScope.client_depots[0].user_key) {
     $scope.option = true;
