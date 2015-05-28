@@ -16,6 +16,13 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 	transition-timing-function: cubic-bezier(0.76, -0.245, 0.24, 1.245) !important;
 }
 
+.logo{
+	width:1.5rem; 
+	position:absolute; 
+	margin-left:-2rem; 
+	margin-top:-0.3rem;
+}
+
 .sidebar-search {
   padding: 1rem;
   padding-top:0rem;
