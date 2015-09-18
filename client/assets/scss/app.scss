@@ -97,6 +97,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 .main-option{
 	min-height:4rem;
 	margin-top:0.6rem;
+	overflow: hidden;
 }
 
 #panel-config{
@@ -137,5 +138,16 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 	}
 	a{
 		margin-bottom:0;
+	}
+}
+
+.addMovieButton{
+	margin-bottom:0rem; 
+	margin-top:-0.2rem;
+}
+
+@-moz-document url-prefix() {
+	.addMovieButton{ 
+		margin-top:-4rem;
 	}
 }
